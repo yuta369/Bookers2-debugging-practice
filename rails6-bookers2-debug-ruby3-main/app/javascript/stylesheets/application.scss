@@ -1,1 +1,28 @@
 @use "~bootstrap/scss/bootstrap"; 
+
+ .favorite-link {
+  text-decoration: none; /* デフォルトの下線を削除 */
+  font-size: 20px;
+}
+
+.favorite-link-danger {
+  color: fuchsia;
+}
+
+.favorite-link-danger:hover,
+.favorite-link-danger:focus {
+  color: aqua;
+  text-decoration: underline;
+  text-decoration-color: aqua; /* 下線の色を赤に設定 */
+}
+
+.favorite-link-primary {
+  color: aqua;
+}
+
+.favorite-link-primary:hover,
+.favorite-link-primary:focus {
+  color: fuchsia;
+  text-decoration: underline;
+  text-decoration-color: fuchsia; /* 下線の色を青に設定 */
+}
