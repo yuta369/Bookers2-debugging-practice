@@ -26,24 +26,26 @@
           <% end %>
         </tr>
       </table>
-      <div>
-        <% @book.post_comments.each do |post_comment| %>
-          <p>
-            <%= link_to(@user) do %>
-            <%= image_tag @user.get_profile_image, size:"50x50" %><br>
-            <%= @user.name %>
-            <% end %>
-            <%= post_comment.comment %>
+          <% @book.post_comments.each do |post_comment| %>
+      <table>
+        <tr class='d-flex align-items-center'>
+            <td>
+              <%= link_to(@user) do %>
+              <%= image_tag @user.get_profile_image, size:"50x50" %><br>
+              <%= @user.name %>
+              <% end %>
+            </td>
+            <td><%= post_comment.comment %></td>
             <% if post_comment.user == current_user %>
-              <%= link_to "Destroy", book_post_comment_path(post_comment.book, post_comment), method: :delete, class: "btn btn-sm btn-danger" %>
+              <td><%= link_to "Destroy", book_post_comment_path(post_comment.book, post_comment), method: :delete, class: "btn btn-sm btn-danger" %></td>
             <% end %>
-          </p>
-        <% end %>
-      </div>
+        </tr>
+      </table>
+          <% end %>
       <div>
         <%= form_with model: [@book, @post_comment] do |f| %>
-          <%= f.text_area :comment, rows: '5', placeholder: "コメントを入力" %>
-          <%= f.submit "送信する" %>
+          <%= f.text_area :comment, rows: '5', placeholder: "コメントを入力", class: 'form-control book_body' %>
+          <%= f.submit "送信" %>
         <% end %>
       </div>
     </div>
