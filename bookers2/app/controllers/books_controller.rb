@@ -6,14 +6,18 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @book_comment = BookComment.new
     @user = @book.user
+    @new_book = Book.new
   end
 
   def index
-    to = Time.current.at_end_of_day
-    from = (to - 6.day).at_beginning_of_day
-    @books = Book.includes(:favorites).sort_by { |book| -book.favorites.where(created_at: from...to).count }
-    
-    @book = Book.new
+  @book = Book.new
+  # @books = Book.all
+  to = Time.current.at_end_of_day
+  from = (to - 6.day).at_beginning_of_day
+  @books = Book.includes(:favorites).
+    sort_by{ |x|
+      -x.favorites.where(created_at: from...to).count
+     }
   end
 
   def create
