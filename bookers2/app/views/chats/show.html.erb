@@ -1,0 +1,31 @@
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2 class="py-5" id="room" data-room="<%= @room.id %>" data-user="<%= current_user.id %>"><%= @user.name %> さんとのチャット</h2>
+      
+      <div class="message" style="width: 100%;">
+        <% @chats.each do |chat| %>
+          <% if chat.user_id == current_user.id %>
+            <%= render "chats/chat", chat: chat %>
+          <% else %>
+            <div class="left-container d-flex py-1">
+              <%= image_tag @user.get_profile_image, size: '30x30', style: 'border-radius: 50%' %>
+              <p class=ml-1 style="text-align: left;"><span style="background-color: #F5F5DC; padding: 5px; border-radius: 10px;"><%= chat.message %></span></p>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      
+      <div class="errors">
+        <%= render "layouts/errors", obj: @chat %>
+      </div>
+      <%= form_with model: @chat, data: {remote: true} do |f| %>
+        <div class="d-flex">
+        <%= f.text_field :message, class: "flex-fill m-3" %>
+        <%= f.submit "送信", class: "btn btn-dark btn-sm flex-fill m-3" %>
+        </div>
+        <%= f.hidden_field :room_id %>
+      <% end %>
+    </div>
+  </div>
+</div>

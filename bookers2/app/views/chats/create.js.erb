@@ -1,0 +1,5 @@
+$('.message').append('<%= j(render "chats/chat", chat: @chat) %>');
+$('input[type=text]').val("")
+if ($("#error_explanation").length) {
+    $("#error_explanation").remove();
+  }
