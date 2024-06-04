@@ -14,8 +14,8 @@
           <%= image_tag book.user.get_profile_image, size:'50x50' %>
           <% end %>
         </td>
-        <td><%= link_to truncate(book.title, length: 15), book, class: "book_#{book.id}" %></td>
-        <td><%= truncate(book.body, length: 25) %></td>
+        <td><%= link_to truncate(book.title, length: 20), book, class: "book_#{book.id}" %></td>
+        <td><%= truncate(book.body, length: 35) %></td>
         <td id="favorite_btn_<%= book.id %>">
           <%= render "favorites/btn", book: book %>
         </td>

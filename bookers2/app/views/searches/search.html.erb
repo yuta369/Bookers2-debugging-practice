@@ -1,7 +1,11 @@
-<% if @model == 'user' %>
-    <h3>Users search for "<%= @content %>"</h3>
-  <%= render 'users/index', users: @records %>
-<% elsif @model == 'book' %>
-    <h3>Books search for "<%= @content %>"</h3>
-  <%= render 'books/index', books: @records %>
-<% end %>
+<div class='container px-5 px-sm-0 my-3'>
+  <div class='row'>
+    <% if @model == 'user' %>
+        <h3>Users search for "<%= @content %>"</h3>
+      <%= render 'users/index', users: @records %>
+    <% elsif @model == 'book' %>
+        <h3>Books search for "<%= @content %>"</h3>
+      <%= render 'books/index', books: @records %>
+    <% end %>
+  </div>
+</div>
