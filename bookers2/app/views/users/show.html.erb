@@ -13,6 +13,7 @@
     <div class='col-md-8 offset-md-1'>
       <h2>Books</h2>
       <%= render 'books/index',books: @books %>
+      <%= render "posts_on_date_form", user: @user %>
       <h3 class="mt-5">7日間分の投稿数</h3>
       <table class="table table-bordered">
         <tbody>
@@ -134,7 +135,6 @@
             </tr>
           </tbody>
         </table>
-      <%= render "posts_on_date_form", user: @user %>
     </div>
   </div>
 </div>

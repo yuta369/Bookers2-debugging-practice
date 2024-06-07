@@ -28,19 +28,6 @@ class UsersController < ApplicationController
     end
   end
 
-  private
-
-  def user_params
-    params.require(:user).permit(:name, :introduction, :profile_image)
-  end
-
-  def ensure_correct_user
-    @user = User.find(params[:id])
-    unless @user == current_user
-      redirect_to user_path(current_user)
-    end
-  end
-  
   def posts_on_date
     # リクエストの中からユーザーIDを取得し、データベースからユーザー情報を取得
     user = User.includes(:books).find(params[:user_id])
@@ -54,4 +41,18 @@ class UsersController < ApplicationController
     # 検索結果を表示するためのビュー（posts_on_date_form）にデータを送る
     render :posts_on_date_form
   end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :introduction, :profile_image)
+  end
+
+  def ensure_correct_user
+    @user = User.find(params[:id])
+    unless @user == current_user
+      redirect_to user_path(current_user)
+    end
+  end
+  
 end
