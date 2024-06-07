@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resource :relationships, only: [:create, :destroy]
   	get "followings" => "relationships#followings", as: "followings"
   	get "followers" => "relationships#followers", as: "followers"
+  	get "posts_on_date" => "users#posts_on_date"
   end
   
   resources :chats, only: [:show, :create, :destroy]

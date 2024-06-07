@@ -34,20 +34,20 @@
         $(document).on('turbolinks:load', function() {
           // グラフを描画するためのCanvas要素を取得
           var ctx = document.getElementById("postCountChart");
-          
+
           // Chart.jsを使ってグラフを作成
           var postCountChart = new Chart(ctx, {
             type: 'line', // ラインチャートを使用
-      
+
             data: {
               // グラフのラベル（x軸の値）
               labels: ['6日前', '5日前', '4日前', '3日前', '2日前', '1日前', '今日'],
-      
+
               datasets: [
                 {
                   // データセットのラベル
                   label: '投稿した本の数',
-                  
+
                   // データセットの値
                   data: [
                     <%= @books.created_6day_ago.count %>, // 6日前の投稿数
@@ -58,27 +58,27 @@
                     <%= @books.created_yesterday.count %>, // 昨日の投稿数
                     <%= @books.created_today.count %> // 今日の投稿数
                   ],
-                  
+
                   // グラフの線の色
                   borderColor: "rgba(135, 206, 235, 1)",
-                  
+
                   // グラフの背景色（透明）
                   backgroundColor: "rgb(0, 0, 0, 0)",
-                  
+
                   // グラフの曲線の滑らかさ（0から1の範囲で設定。数値が大きくなるほど曲線が滑らかになる）
                   tension: 0.3
                 }
               ],
             },
-      
+
             options: {
               title: {
                 display: true,
                 text: '7日間の投稿数の比較'
               },
-      
+
               responsive: true, // グラフのレスポンシブデザインを有効化
-      
+
               scales: {
                 y: {
                   // y軸（縦軸）の設定。設定しないと自動になるので書かなくても良い。
@@ -134,7 +134,7 @@
             </tr>
           </tbody>
         </table>
-      </div>
+      <%= render "posts_on_date_form", user: @user %>
     </div>
   </div>
 </div>
