@@ -1,6 +1,10 @@
-<h2>Follow Users</h2>
-<% if @users.exists? %>
-  <%= render "/users/index", users: @users %>
-<% else %>
-  <p>ユーザーはいません</p>
-<% end %>
+<div class='container px-5 px-sm-0 my-3'>
+  <div class='row'>
+    <h2>Follow Users</h2>
+    <% if @users.exists? %>
+      <%= render "/users/index", users: @users %>
+    <% else %>
+      <p>ユーザーはいません</p>
+    <% end %>
+  </div>
+</div>
