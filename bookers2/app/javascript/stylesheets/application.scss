@@ -54,3 +54,11 @@
   text-decoration: underline;
   text-decoration-color: fuchsia; /* 下線の色を設定 */
 }
+
+.btn {
+  box-shadow: 0px 5px 12px #cad4e2, -6px -6px 12px #fff;
+}
+
+.btn:hover {
+  box-shadow: 0 0 4px #CAD4E2, -2px -2px 4px #FFF;
+}
