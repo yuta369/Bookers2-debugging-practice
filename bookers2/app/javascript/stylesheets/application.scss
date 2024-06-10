@@ -7,6 +7,7 @@
     padding-bottom: 0;
     margin-bottom: 20px;
     background-color: #fff;
+    box-shadow: 0px 5px 12px #cad4e2, -6px -6px 12px #fff;
 }
 
 #error_explanation h3 {
@@ -55,10 +56,11 @@
   text-decoration-color: fuchsia; /* 下線の色を設定 */
 }
 
-.btn {
+.btn, .input-group, .form-control {
   box-shadow: 0px 5px 12px #cad4e2, -6px -6px 12px #fff;
 }
 
-.btn:hover {
+.btn:hover, .input-group:hover, .form-control:hover {
   box-shadow: 0 0 4px #CAD4E2, -2px -2px 4px #FFF;
 }
+
